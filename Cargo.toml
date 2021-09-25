@@ -1,5 +1,7 @@
 [package]
 name = "ezconf"
+description = "Simple rust configuration library"
+license = "MIT"
 version = "0.1.0"
 edition = "2018"
 
