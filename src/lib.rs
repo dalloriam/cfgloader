@@ -77,8 +77,9 @@ pub fn load_or_default<T: DeserializeOwned + Serialize>(
     } else {
         // Create the default config.
         let config_dir = dirs::config_dir().ok_or(Error::UnknownConfigDirectory)?;
-        fs::create_dir_all(&config_dir).context(FailedToCreateConfigDir)?;
-        let file_path = config_dir.join(namespace).join(name).with_extension("toml");
+        let namespace_dir = config_dir.join(namespace);
+        fs::create_dir_all(&namespace_dir).context(FailedToCreateConfigDir)?;
+        let file_path = namespace_dir.join(name).with_extension("toml");
 
         let f = fs::File::create(&file_path).context(FailedToCreateDefaultConfigFile)?;
         polyglot::to_writer(f, &default, Format::TOML).context(FailedToSerializeDefaultConfig)?;
