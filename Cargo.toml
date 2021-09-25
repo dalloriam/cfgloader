@@ -1,0 +1,12 @@
+[package]
+name = "ezconf"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dirs = "4"
+polyglot = {version = "0.2.1", features = ["json_fmt", "toml_fmt", "yaml_fmt"]}
+serde = "1"
+snafu = "0.6"
