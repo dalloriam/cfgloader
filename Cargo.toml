@@ -1,5 +1,5 @@
 [package]
-name = "ezconf"
+name = "cfgloader"
 description = "Simple rust configuration library"
 license = "MIT"
 version = "0.1.0"
